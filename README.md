@@ -10,7 +10,7 @@
 * [What it is about](#gist)
 * [Using](#using)
 * [Module settings](#settings)
-* [Example at *Basic* template](#example-basic)
+* [Example with *Basic* template](#example-basic)
 * [How-to](#recipe)
 
 
