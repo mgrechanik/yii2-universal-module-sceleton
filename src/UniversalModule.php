@@ -124,7 +124,7 @@ class UniversalModule extends \yii\base\Module
     public function createController($route)
     {
         $result = parent::createController($route);
-        if (!(Yii::$app instanceof ConsoleApplication)) {
+        if ($result && !(Yii::$app instanceof ConsoleApplication)) {
             $controller = $result[0];
             $controllerClassName = get_class($controller);
             $dir = '@' . str_replace('\\', '/', $this->getNamespace());
