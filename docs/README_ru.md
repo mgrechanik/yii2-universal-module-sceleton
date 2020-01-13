@@ -40,7 +40,7 @@ composer require --prefer-dist mgrechanik/yii2-universal-module-sceleton
 
 или добавьте
 ```
-"mgrechanik/yii2-universal-module-sceleton" : "^1.0"
+"mgrechanik/yii2-universal-module-sceleton" : "~1.0.0"
 ```
 в  `require` секцию вашего `composer.json` файла.
 
