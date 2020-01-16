@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * This file is part of the mgrechanik/yii2-universal-module-sceleton library
+ *
+ * @copyright Copyright (c) Mikhail Grechanik <mike.grechanik@gmail.com>
+ * @license https://github.com/mgrechanik/yii2-universal-module-sceleton/blob/master/LICENCE.md
+ * @link https://github.com/mgrechanik/yii2-universal-module-sceleton
+ */
+ 
 namespace mgrechanik\yiiuniversalmodule;
 
 use Yii;
@@ -8,6 +15,9 @@ use yii\console\Application as ConsoleApplication;
 /**
  * Universal module is a sceleton of the module which is easy to be used
  * both with Advanced and Basic application templates
+ *
+ * @author Mikhail Grechanik <mike.grechanik@gmail.com>
+ * @since 1.0.0 
  */
 class UniversalModule extends \yii\base\Module
 {
