@@ -1,3 +1,7 @@
+/vendor
+/composer.lock
+/phpunit.xml
+
 # phpstorm project files
 .idea
 

@@ -9,6 +9,7 @@
 * [Installing](#installing)
 * [What it is about](#gist)
 * [Using](#using)
+* [Module inheritance](#inheritance)
 * [Module settings](#settings)
 * [Example with *Basic* template](#example-basic)
 * [How-to](#recipe)
@@ -27,6 +28,7 @@ This extension gives the structure of the module which:
 
     * connects to module section only one time
     * there is functionality of protection to all **backend** controllers  (for admin part of your web site) 
+5. it is easy to inherit such modules from one another to override functionality without controllers duplication
 	
 ---
     
@@ -140,6 +142,21 @@ class YourModule extends UniversalModule
 
 ---
 
+## Module inheritance <span id="inheritance"></span>
+
+When you inherit your module class from existing one without overriding ```$frontendControllers```
+and ```$backendControllers``` the next happens:
+1) These two properties will be taken from parent naturally
+2) But the basic controller namespace will be set to your module namespace.
+You do not have such controllers and you do not want to create their copies
+3) There are next opportunities how to make your module to use controllers from any of his ancestors:
+    * If controllers reside with **immediate** parent of your module set it the next property
+	```$takeControllersFromParentModule = true```
+    * If controllers are in some other module, say ```'Omega'```, then set the property of your module  ```$baseControllerNamespace``` to **namespace** of ```'Omega'``` module
+    * ```Views``` will be searched by default according to settings above	
+
+---
+
 ## Module settings <span id="settings"></span>
 
 [Connecting](#setup) module to application we can use next it's properties:
@@ -171,6 +188,19 @@ It is handy, for example, to restrict access to such controllers using yii filte
 
 #### ```$frontendControllerConfig``` - **frontend** controllers settings
 It is the same like ```$backendControllerConfig```
+
+#### ```$baseControllerNamespace``` - the basic namespace for the controllers the module uses
+By default it is not used and controllers will be searched relevant to your current module namespace.  
+But with this property you can tell to take controllers from any other module
+
+#### ```$takeControllersFromParentModule``` - whether to take controllers from parent
+It is ```false``` by default, meaning no taking.  
+But with this property you can tell to take controllers from immediate parent of current module
+
+#### ```$baseViewsPath``` - basic path where to find module's ```views```
+By default it is not used.  
+It is automatically set up whether to current module directory or relevant to the two properties above when they are set.   
+But with this property you can finally say where to search for ```views```. Example of value: ```'@mgrechanik/yii2catalog'```
 
 ---
 
